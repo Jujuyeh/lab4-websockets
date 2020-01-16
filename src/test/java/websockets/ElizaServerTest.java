@@ -62,10 +62,10 @@ public class ElizaServerTest {
 		ClientEndpointConfig configuration = ClientEndpointConfig.Builder.create().build();
 		ClientManager client = ClientManager.createClient();
 		Session session = client.connectToServer(new ElizaEndpointToComplete(list, latch), configuration, new URI("ws://localhost:8025/websockets/eliza"));
-        session.getAsyncRemote().sendText("Alexa, play Despacito");
+        session.getAsyncRemote().sendText("You are welcome");
         latch.await();
         assertEquals(5, list.size());
-        assertEquals("I'm not sure I understand you fully.", list.get(3));
+        assertEquals("We were discussing you, not me.", list.get(3));
 	}
 
 	@After
